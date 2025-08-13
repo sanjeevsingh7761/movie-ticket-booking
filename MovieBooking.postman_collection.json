@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "Movie Booking API Collection",
-    "_postman_id": "5b8b587b-12c1-4964-bb20-xyz123456789",
-    "description": "APIs for browsing theatres and booking tickets with discounts.",
+    "name": "Movie Booking API Collection - Updated",
+    "_postman_id": "b67f0f2a-7df4-4b1a-8b7f-123456abcdef",
+    "description": "APIs for browsing theatres, booking tickets, and onboarding theatre partners.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -11,121 +11,63 @@
       "request": {
         "method": "GET",
         "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
+          { "key": "Content-Type", "value": "application/json" }
         ],
         "url": {
-          "raw": "http://localhost:8080/api/movies/101/theatres?city=Bangalore&date=2025-08-15",
+          "raw": "http://localhost:9191/api/movies/1/theatres?city=Bangalore&date=2025-08-15",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8080",
-          "path": ["api", "movies", "101", "theatres"],
+          "path": ["api", "movies", "1", "theatres"],
           "query": [
-            {
-              "key": "city",
-              "value": "Bangalore"
-            },
-            {
-              "key": "date",
-              "value": "2025-08-15"
-            }
+            { "key": "city", "value": "Bangalore" },
+            { "key": "date", "value": "2025-08-15" }
           ]
         }
       },
-      "response": [
-        {
-          "name": "Sample Response",
-          "originalRequest": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:8080/api/movies/101/theatres?city=Bangalore&date=2025-08-15"
-            }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "body": "[\n  {\n    \"theatreName\": \"PVR Koramangala\",\n    \"address\": \"Koramangala 7th Block, Bangalore\",\n    \"shows\": [\n      {\n        \"showId\": 2001,\n        \"showTime\": \"2025-08-15T10:30:00\",\n        \"price\": 250.0,\n        \"availableSeats\": 120\n      },\n      {\n        \"showId\": 2002,\n        \"showTime\": \"2025-08-15T14:00:00\",\n        \"price\": 250.0,\n        \"availableSeats\": 100\n      }\n    ]\n  }\n]"
-        }
-      ]
+      "response": []
     },
     {
       "name": "Book Tickets",
       "request": {
         "method": "POST",
         "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
+          { "key": "Content-Type", "value": "application/json" }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"showId\": 2002,\n  \"userId\": 501,\n  \"seatNumbers\": [\"A1\", \"A2\", \"A3\"]\n}"
+          "raw": "{\n  \"showId\": 1,\n  \"userId\": 501,\n  \"seatNumbers\": [\"A1\", \"A2\", \"A3\"]\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/api/bookings",
+          "raw": "http://localhost:9191/api/bookings",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8080",
           "path": ["api", "bookings"]
         }
       },
-      "response": [
-        {
-          "name": "Sample Booking Success",
-          "originalRequest": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"showId\": 2002,\n  \"userId\": 501,\n  \"seatNumbers\": [\"A1\", \"A2\", \"A3\"]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/bookings"
-            }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "body": "{\n  \"bookingId\": 9001,\n  \"totalPrice\": 500.0,\n  \"status\": \"SUCCESS\",\n  \"seatsBooked\": [\"A1\", \"A2\", \"A3\"]\n}"
+      "response": []
+    },
+    {
+      "name": "Onboard Theatre Partner",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"INOX Garuda Mall\",\n  \"city\": \"Bangalore\",\n  \"address\": \"Magrath Road, Bangalore\"\n}"
         },
-        {
-          "name": "Sample Booking Failure - Seats Unavailable",
-          "originalRequest": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"showId\": 2002,\n  \"userId\": 501,\n  \"seatNumbers\": [\"A1\", \"A2\"]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/bookings"
-            }
-          },
-          "status": "BAD REQUEST",
-          "code": 400,
-          "_postman_previewlanguage": "json",
-          "body": "{\n  \"error\": \"Requested seats not available\",\n  \"status\": \"FAILED\"\n}"
+        "url": {
+          "raw": "http://localhost:9191/api/theatres/onboard",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "theatres", "onboard"]
         }
-      ]
+      },
+      "response": []
     }
   ]
 }

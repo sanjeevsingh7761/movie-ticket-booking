@@ -19,6 +19,39 @@ public class TheatreShowResponse {
 
     public static class ShowDetails {
         public Long showId;
+
+        public Long getShowId() {
+            return showId;
+        }
+
+        public void setShowId(Long showId) {
+            this.showId = showId;
+        }
+
+        public LocalDateTime getShowTime() {
+            return showTime;
+        }
+
+        public void setShowTime(LocalDateTime showTime) {
+            this.showTime = showTime;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public void setPrice(double price) {
+            this.price = price;
+        }
+
+        public int getAvailableSeats() {
+            return availableSeats;
+        }
+
+        public void setAvailableSeats(int availableSeats) {
+            this.availableSeats = availableSeats;
+        }
+
         public LocalDateTime showTime;
         public double price;
         public int availableSeats;
