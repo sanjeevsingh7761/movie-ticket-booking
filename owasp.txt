@@ -1,0 +1,38 @@
+The OWASP Top 10 is a regularly updated list published by the Open Web Application Security Project (OWASP) that highlights the ten most important security risks to web applications.
+It is a standard awareness document for developers and security professionals, guiding them on common vulnerabilities and how to prevent them.
+
+Here’s the OWASP Top 10 (2021 version, still current as of 2025):
+
+1. Broken Access Control**
+- Users can access data or actions they shouldn’t (e.g., unauthorized data exposure, privilege escalation).
+
+2.Cryptographic Failures  (Previously: Sensitive Data Exposure)
+- Weaknesses in protecting sensitive data in transit or at rest (improper encryption, insecure protocols).
+
+3.Injection
+- Untrusted data sent to an interpreter (e.g., SQL, NoSQL, OS commands) is executed, leading to attacks like SQL injection.
+
+4. Insecure Design
+- Flawed business logic, lack of security controls, or design without threat modeling and secure patterns.
+
+5. Security Misconfiguration
+- Default settings, incomplete configurations, open cloud storage, or unnecessary features enabled.
+
+6. Vulnerable and Outdated Components
+- Use of components (libraries, frameworks) with known vulnerabilities or unsupported versions.
+
+7. Identification and Authentication Failures
+- Weak authentication, lack of MFA, brute force, and credential stuffing vulnerabilities.
+
+8. Software and Data Integrity Failures
+- Code and infrastructure that do not protect against integrity violations (e.g., unsigned updates, deserialization flaws).
+
+9.Security Logging and Monitoring Failures
+- Absence of, or ineffective, logging, detection, and monitoring of security events.
+
+10. Server-Side Request Forgery (SSRF)
+- Web application fetches a remote resource based on user input without validation, allowing attackers to make unintended requests.
+
+Why is this important?
+All modern web applications should be reviewed against these risks, as they are the most common and impactful vulnerabilities seen in real-world breaches.
+Regularly following OWASP Top 10 guidance helps you build more secure applications.
